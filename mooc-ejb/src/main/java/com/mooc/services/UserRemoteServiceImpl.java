@@ -23,7 +23,16 @@ public class UserRemoteServiceImpl extends GenericRemoteService<Person> implemen
 		if (list.isEmpty()) {
 			return null;
 		}
-		return list.get(0);
+		Person person = findUserById(list.get(0).getId()); 
+		
+		return person;
+	}
+
+	@Override
+	public Person findUserById(Integer id) {
+		// TODO Auto-generated method stub
+		
+		return entityManager.find(Person.class, id);
 	}
 
 }
